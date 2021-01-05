@@ -1,0 +1,51 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "@fontsource/jost": "^4.1.0",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/styles": "^4.11.2",
+    "clsx": "^1.1.1",
+    "copy-to-clipboard": "^3.3.1",
+    "gatsby": "^2.30.0",
+    "gatsby-image": "^2.9.0",
+    "gatsby-plugin-htaccess": "^1.4.0",
+    "gatsby-plugin-less": "^4.5.0",
+    "gatsby-plugin-manifest": "^2.10.0",
+    "gatsby-plugin-minify-classnames": "^0.2.0",
+    "gatsby-plugin-offline": "^3.8.0",
+    "gatsby-plugin-preact": "^4.5.0",
+    "gatsby-plugin-react-head": "^1.1.0",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-sharp": "^2.12.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.18",
+    "gatsby-plugin-webpack-size": "^1.0.0",
+    "gatsby-source-filesystem": "^2.9.0",
+    "gatsby-transformer-sharp": "^2.10.0",
+    "less": "^4.0.0",
+    "normalize.css": "^8.0.1",
+    "preact": "^10.5.9",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-head": "^3.4.0"
+  },
+  "devDependencies": {
+    "prettier": "2.2.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  }
+}
