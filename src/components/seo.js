@@ -7,7 +7,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Meta, Title } from 'react-head'
+import { Title } from 'react-head'
 
 function SEO({ description, meta, title }) {
   // const metaDescription =
