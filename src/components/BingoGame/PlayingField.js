@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
 import BingoButton from './BingoButton'
 
 import copyToClipboard from 'copy-to-clipboard'

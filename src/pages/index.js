@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles'
 
 import { Paragraph, Shout } from '../typography'
 import Layout from '../components/layout'

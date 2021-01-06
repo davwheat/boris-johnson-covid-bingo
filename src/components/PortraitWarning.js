@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useMediaQuery } from '@material-ui/core'
+import { useMediaQuery } from '@material-ui/styles'
 import { Breakpoints } from '../data'
 import AlertBanner from './AlertBanner'
 
