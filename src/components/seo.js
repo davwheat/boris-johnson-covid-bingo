@@ -9,7 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Title } from 'react-head'
 
-function SEO({ description, meta, title }) {
+function SEO({ title }) {
   // const metaDescription =
   //   description ||
   //   "Do you find Boris Johnson's Coronavirus briefings ridiculously dull? Play a game of BoJo Bingo: mark off each phrase and action as they happen in real time."
