@@ -114,7 +114,7 @@ export default React.memo(function PlayingField() {
           setTimeout(() => span.removeAttribute('data-shown'), 1500)
         }}
       >
-        Copy link to bingo board
+        Copy permalink to this bingo board
         <span className={classes.copyButtonCopiedText}>Copied!</span>
       </Button>
 
