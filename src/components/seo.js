@@ -17,7 +17,7 @@ function SEO({ description, meta, title }) {
 
   return (
     <>
-      <Title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</Title>
+      <Title>{title ? `${title} | ${defaultTitle}` : title}</Title>
     </>
   )
 }
