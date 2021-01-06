@@ -10,8 +10,10 @@ import PropTypes from 'prop-types'
 import { Meta, Title } from 'react-head'
 
 function SEO({ description, meta, title }) {
-  const metaDescription = description || "Constant COVID briefings getting on your nerve? Try a game of BoJo Briefing Bingo while you're watching!"
-  const defaultTitle = 'BoJo Bingo'
+  const metaDescription =
+    description ||
+    "Do you find Boris Johnson's Coronavirus briefings ridiculously dull? Play a game of BoJo Bingo: mark off each phrase and action as they happen in real time."
+  const defaultTitle = 'BoJo Briefing Bingo'
 
   const defaultMeta = [
     {
