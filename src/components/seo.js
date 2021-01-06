@@ -7,7 +7,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Title } from 'react-head'
+import { HeadProvider, Title } from 'react-head'
 
 function SEO({ title }) {
   // const metaDescription =
@@ -15,10 +15,14 @@ function SEO({ title }) {
   //   "Do you find Boris Johnson's Coronavirus briefings ridiculously dull? Play a game of BoJo Bingo: mark off each phrase and action as they happen in real time."
   const defaultTitle = 'BoJo Briefing Bingo'
 
+  if (typeof window === 'undefined') {
+    return null
+  }
+
   return (
-    <>
+    <HeadProvider>
       <Title>{title ? `${title} | ${defaultTitle}` : defaultTitle}</Title>
-    </>
+    </HeadProvider>
   )
 }
 
