@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import Link from '../components/Link'
 import BodySection from '../components/section'
 import RandomBigBorisImage from '../components/RandomBigBorisImage'
+import SEO from '../components/seo'
 
 const useStyles = makeStyles({
   heading: {
@@ -26,6 +27,8 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <SEO title="Page not found" />
+
       <Shout noPadding className={classes.heading}>
         BoJo Briefing Bingo
       </Shout>

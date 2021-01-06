@@ -9,6 +9,7 @@ import { Breakpoints } from '../data'
 import PortraitWarning from '../components/PortraitWarning'
 import BodySection from '../components/section'
 import PlayingField from '../components/BingoGame/PlayingField'
+import SEO from '../components/seo'
 
 const useStyles = makeStyles({
   headerContainer: {
@@ -42,6 +43,8 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <SEO />
+
       <div className={classes.headerContainer}>
         <RandomBorisImage
           alt="An extraordinarily obscene image of Boris Johnson"
