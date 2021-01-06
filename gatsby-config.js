@@ -9,6 +9,7 @@ module.exports = {
     `gatsby-plugin-less`,
     `gatsby-plugin-react-head`,
     `gatsby-plugin-htaccess`,
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
