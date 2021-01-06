@@ -7,9 +7,8 @@ module.exports = {
   plugins: [
     `gatsby-plugin-preact`,
     `gatsby-plugin-less`,
-    `gatsby-plugin-react-head`,
     `gatsby-plugin-htaccess`,
-    `gatsby-plugin-preload-fonts`,
+    `gatsby-plugin-react-head`,
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -18,6 +17,8 @@ module.exports = {
         },
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,8 +26,7 @@ module.exports = {
         path: `./src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -39,17 +39,15 @@ module.exports = {
         icon: `src/images/boris-weird/1.png`,
       },
     },
+    `gatsby-plugin-material-ui`,
     `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-plugin-webpack-size`,
-    {
-      resolve: `gatsby-plugin-minify-classnames`,
-      options: {
-        dictionary: 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
-        enableOnDevelopment: false,
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // {
+    //   resolve: `gatsby-plugin-minify-classnames`,
+    //   options: {
+    //     dictionary: 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
+    //     enableOnDevelopment: false,
+    //   },
+    // },
   ],
 }

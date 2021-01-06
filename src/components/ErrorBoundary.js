@@ -12,14 +12,6 @@ const useStyles = () => ({
     maxWidth: 900,
     margin: 'auto',
   },
-  logo: {
-    display: 'block',
-    maxWidth: 400,
-    width: '100%',
-    margin: 'auto',
-    color: Colors.dark,
-    marginBottom: 48,
-  },
 })
 
 class ErrorBoundary extends React.Component {
@@ -48,18 +40,10 @@ class ErrorBoundary extends React.Component {
           <Shout>Uh oh, something went wrong.</Shout>
           <Paragraph bold>It's not you, it's us.</Paragraph>
           <Paragraph>
-            Please try{' '}
-            <Link className={classes.linkOrBtn} onClick={() => window.location.reload()}>
-              refreshing the page
-            </Link>
-            .
+            Please try <Link onClick={() => window.location.reload()}>refreshing the page</Link>.
           </Paragraph>
           <Paragraph>
-            Still having issues? Let me know{' '}
-            <Link className={classes.linkOrBtn} url="https://twitter.com/davwheat_">
-              on Twitter
-            </Link>
-            .
+            Still having issues? Let me know <Link url="https://twitter.com/davwheat_">on Twitter</Link>.
           </Paragraph>
         </main>
       )

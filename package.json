@@ -15,6 +15,7 @@
     "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-less": "^4.5.0",
     "gatsby-plugin-manifest": "^2.10.0",
+    "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-minify-classnames": "^0.2.0",
     "gatsby-plugin-offline": "^3.8.0",
     "gatsby-plugin-preact": "^4.5.0",
