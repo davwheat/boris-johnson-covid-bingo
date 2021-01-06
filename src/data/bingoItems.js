@@ -25,6 +25,11 @@ const bingoItems = [
   '*standing with crossed legs*',
   '*not actually having a clue about the answer to a question*',
   '*answering a question in the most confusing and long-winded way possible*',
+  '"we will beat this"',
+  '"our amazing NHS"',
+  '"in this together"',
+  '"collective duty"',
+  '"to be absolutely clear"',
 ]
 
 export default bingoItems
