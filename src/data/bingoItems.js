@@ -30,7 +30,6 @@ const bingoItems = [
   '"in this together"',
   '"collective duty"',
   '"to be absolutely clear"',
-  '"Well Laura..."',
   '"I\'ve said it before, and I\'ll say it again..."',
   '"We will always be guided by the science"',
   '"In answer to your question..." *changes question*',
