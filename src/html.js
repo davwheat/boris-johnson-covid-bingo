@@ -18,12 +18,12 @@ export default function HTML(props) {
         />
         <meta name="image" content="https://borisbingo.com/promo.jpg" />
         {/* <!-- Schema.org for Google --> */}
-        <meta itemprop="name" content="BoJo Briefing Bingo" />
+        <meta itemProp="name" content="BoJo Briefing Bingo" />
         <meta
-          itemprop="description"
+          itemProp="description"
           content="Do you find Boris Johnson's Coronavirus briefings ridiculously dull? Play a game of BoJo Bingo: mark off each phrase and action as they happen in real time."
         />
-        <meta itemprop="image" content="https://borisbingo.com/promo.jpg" />
+        <meta itemProp="image" content="https://borisbingo.com/promo.jpg" />
         {/* <!-- Twitter --> */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="BoJo Briefing Bingo" />
