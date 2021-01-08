@@ -60,7 +60,7 @@ const IndexPage = () => {
         <Paragraph>Do you find Boris Johnson's Coronavirus briefings ridiculously dull? If so, this is the website for you!</Paragraph>
         <Paragraph noPadding>
           We'll generate a randomised Bingo board each time you refresh this page. If you hear the text or see the actions in any of the boxes, click or tap
-          them to mark them off. You win (absolutely nothing) if you get 5 in a row!
+          them to mark them off. You win if you get 5 in a row!
         </Paragraph>
       </BodySection>
 
