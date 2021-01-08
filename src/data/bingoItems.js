@@ -47,6 +47,9 @@ const bingoItems = [
   "'no-one wants...'",
   "'not what I wanted'",
   "'unprecedented'",
+  '*double fist shake*',
+  "'out of control'",
+  "'the right thing to do'",
 ]
 
 export default bingoItems
