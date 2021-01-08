@@ -11,6 +11,7 @@ import Button from '../button'
 import { Colors } from '../../data'
 import generateTransitions from '../../functions/generateTransitions'
 import { FreeSpaceText } from '../../data/bingoItems'
+import ScrollToViewMore from '../ScrollToViewMore'
 
 const useStyles = makeStyles({
   gridContainer: {
@@ -135,6 +136,7 @@ export default React.memo(function PlayingField() {
           <span className={classes.copyButtonCopiedText}>Copied!</span>
         </Button>
 
+        <ScrollToViewMore />
       </div>
 
       <div className={classes.gridContainer}>

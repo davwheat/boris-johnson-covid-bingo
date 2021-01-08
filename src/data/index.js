@@ -9,10 +9,12 @@ const Breakpoints = Object.freeze({
   upTo: {
     large: '(max-width: 767px)',
     medium: '(max-width: 579px)',
+    playingFieldScrollBarShown: '(max-width: 985px)',
   },
   downTo: {
     medium: '(min-width: 768px)',
     small: '(min-width: 580px)',
+    playingFieldScrollBarShown: '(min-width: 986px)',
   },
 })
 
