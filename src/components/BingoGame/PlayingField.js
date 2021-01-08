@@ -10,6 +10,7 @@ import EncodeGameBoard from '../../functions/EncodeGameBoard'
 import Button from '../button'
 import { Colors } from '../../data'
 import generateTransitions from '../../functions/generateTransitions'
+import { FreeSpaceText } from '../../data/bingoItems'
 
 const useStyles = makeStyles({
   root: {
@@ -89,10 +90,18 @@ export default React.memo(function PlayingField() {
   // }
 
   function ToggleButtonState(index) {
-    let state = gameState
-    state[index].checked = !state[index].checked
-    setGameState(state, s => {
-      console.log(s)
+    setGameState(s => {
+      /**
+       * @type {{text: string, checked: bool}[]}
+       */
+      let state = s
+
+      if (state[index].text === FreeSpaceText) {
+        return s
+      }
+
+      state[index].checked = !state[index].checked
+      return state
     })
     forceUpdate()
   }
@@ -122,7 +131,7 @@ export default React.memo(function PlayingField() {
         {gameState.map((boardItem, i) => (
           <BingoButton
             description={boardItem.text}
-            isCrossedOut={boardItem.checked}
+            isCrossedOut={boardItem.checked || boardItem.text === FreeSpaceText}
             key={`${boardItem.text}__${boardItem.checked}`}
             onClick={() => ToggleButtonState(i)}
           />
