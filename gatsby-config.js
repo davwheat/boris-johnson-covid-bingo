@@ -28,6 +28,16 @@ module.exports = {
     },
     `gatsby-plugin-preload-fonts`,
     {
+      resolve: `gatsby-plugin-build-date`,
+      options: {
+        formatAsDateString: true, // boolean, defaults to true - if false API will return unformatted string from new Date()
+        formatting: {
+          format: 'DD MMMM YYYY', // string, defaults to "MM/DD/YYYY" - pass in any acceptable date-and-time format
+          utc: false, // boolean, defaults to false - output time as UTC or not, following date-and-time API
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `BoJo Briefing Bingo`,
