@@ -13,7 +13,11 @@ import generateTransitions from '../../functions/generateTransitions'
 import { FreeSpaceText } from '../../data/bingoItems'
 
 const useStyles = makeStyles({
-  root: {
+  gridContainer: {
+    overflowX: 'auto',
+    maxWidth: '100%',
+  },
+  grid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 1fr)',
     gridTemplateRows: 'repeat(5, 1fr)',
@@ -23,6 +27,7 @@ const useStyles = makeStyles({
     '& > *': {
       background: '#fff',
     },
+    minWidth: 875,
   },
   controls: {
     marginBottom: 24,
@@ -131,16 +136,19 @@ export default React.memo(function PlayingField() {
         </Button>
 
       </div>
-      <section className={classes.root}>
-        {gameState.map((boardItem, i) => (
-          <BingoButton
-            description={boardItem.text}
-            isCrossedOut={boardItem.checked || boardItem.text === FreeSpaceText}
-            key={`${boardItem.text}__${boardItem.checked}`}
-            onClick={() => ToggleButtonState(i)}
-          />
-        ))}
-      </section>
+
+      <div className={classes.gridContainer}>
+        <section className={classes.root}>
+          {gameState.map((boardItem, i) => (
+            <BingoButton
+              description={boardItem.text}
+              isCrossedOut={boardItem.checked || boardItem.text === FreeSpaceText}
+              key={`${boardItem.text}__${boardItem.checked}`}
+              onClick={() => ToggleButtonState(i)}
+            />
+          ))}
+        </section>
+      </div>
     </>
   )
 })
