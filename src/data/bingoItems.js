@@ -1,4 +1,7 @@
+const FreeSpaceText = '-- FREE SPACE --'
+
 const bingoItems = [
+  FreeSpaceText,
   '"Good evening"',
   '"Alas"',
   '"It is with a heavy heart"',
@@ -43,7 +46,6 @@ const bingoItems = [
   "'working tirelessly'",
   "'Erm... erm... Professor?'",
   'Any random Latin phrase',
-  '-- FREE SPACE --',
   "'no-one wants...'",
   "'not what I wanted'",
   "'unprecedented'",
@@ -53,4 +55,4 @@ const bingoItems = [
   "'new normal'",
 ]
 
-export default bingoItems
+export { bingoItems as default, FreeSpaceText }
