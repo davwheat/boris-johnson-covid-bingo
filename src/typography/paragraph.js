@@ -13,13 +13,16 @@ const useStyles = makeStyles({
   bold: {
     fontWeight: 600,
   },
+  centered: {
+    textAlign: 'center',
+  },
 })
 
-export default function Paragraph({ children, className, noPadding, inline, bold }) {
+export default function Paragraph({ children, className, noPadding, inline, bold, center }) {
   const classes = useStyles()
 
   const props = {
-    className: clsx(classes.root, noPadding && classes.noPad, bold && classes.bold, className),
+    className: clsx(classes.root, noPadding && classes.noPad, bold && classes.bold, center && classes.centered, className),
   }
 
   if (inline) {
