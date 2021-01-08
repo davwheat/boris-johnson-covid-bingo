@@ -34,7 +34,7 @@ export default function Footer() {
         <BulletSeparator />
 
         <Link target="_blank" url="mailto:hi@davwheat.dev">
-          Email
+          Email me
         </Link>
 
         <BulletSeparator />
