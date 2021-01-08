@@ -33,6 +33,20 @@ const bingoItems = [
   '"I\'ve said it before, and I\'ll say it again..."',
   '"We will always be guided by the science"',
   '"In answer to your question..." *changes question*',
+  "'collective duty'",
+  "'world-beating'",
+  "'rampant'",
+  "'It brings me great pain...'",
+  "'Well Laura...'",
+  '*strong look of defeat*',
+  "'soldier on'",
+  "'working tirelessly'",
+  "'Erm... erm... Professor?'",
+  'Any random Latin phrase',
+  '-- FREE SPACE --',
+  "'no-one wants...'",
+  "'not what I wanted'",
+  "'unprecedented'",
 ]
 
 export default bingoItems
