@@ -24,11 +24,13 @@ const useStyles = makeStyles({
       background: '#fff',
     },
   },
+  controls: {
+    marginBottom: 24,
+  },
   copyButton: {
     position: 'relative',
     margin: 'auto',
-    marginBottom: 48,
-    marginTop: -24,
+    marginBottom: 16,
   },
   copyButtonCopiedText: {
     position: 'absolute',
@@ -108,25 +110,27 @@ export default React.memo(function PlayingField() {
 
   return (
     <>
-      <Button
-        className={classes.copyButton}
-        onClick={e => {
-          let x = []
-          gameState.forEach(item => x.push(item.text))
+      <div className={classes.controls}>
+        <Button
+          className={classes.copyButton}
+          onClick={e => {
+            let x = []
+            gameState.forEach(item => x.push(item.text))
 
-          // Copy URL to clipboard
-          copyToClipboard(window.location.origin + window.location.pathname + EncodeGameBoard(x))
+            // Copy URL to clipboard
+            copyToClipboard(window.location.origin + window.location.pathname + EncodeGameBoard(x))
 
-          // Show 'Copied' text for 1.5s
-          let span = e.currentTarget.lastChild
-          span.setAttribute('data-shown', '')
-          setTimeout(() => span.removeAttribute('data-shown'), 1500)
-        }}
-      >
-        Copy permalink to this bingo board
-        <span className={classes.copyButtonCopiedText}>Copied!</span>
-      </Button>
+            // Show 'Copied' text for 1.5s
+            let span = e.currentTarget.lastChild
+            span.setAttribute('data-shown', '')
+            setTimeout(() => span.removeAttribute('data-shown'), 1500)
+          }}
+        >
+          Copy permalink to this bingo board
+          <span className={classes.copyButtonCopiedText}>Copied!</span>
+        </Button>
 
+      </div>
       <section className={classes.root}>
         {gameState.map((boardItem, i) => (
           <BingoButton
