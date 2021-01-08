@@ -1,3 +1,4 @@
+// If changing primary, update color in CookieHub too!
 const Colors = Object.freeze({
   toryPrimary: '#0087dc',
   dark: '#203647',

@@ -36,6 +36,10 @@ export default function Footer() {
         <Link target="_blank" url="mailto:hi@davwheat.dev">
           Email
         </Link>
+
+        <BulletSeparator />
+
+        <Link onClick={() => window.cookiehub.openSettings()}>Cookie settings</Link>
       </Paragraph>
       <Whisper>All names on this website are real. All identification with actual persons is intended or should be inferred.</Whisper>
       <Whisper>

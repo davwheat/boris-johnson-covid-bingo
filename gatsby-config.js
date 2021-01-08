@@ -3,6 +3,7 @@ module.exports = {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
+    siteUrl: `https://borisbingo.com`,
   },
   plugins: [
     `gatsby-plugin-preact`,
@@ -49,6 +50,27 @@ module.exports = {
         icon: `src/images/boris-weird/1.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-cookiehub-banner`,
+      options: {
+        cookieHubId: '4ab9b9d7',
+        cookieHubV2Api: true,
+        categories: [
+          {
+            categoryName: 'analytics', // Unique id of the category which is set by Cookiehub.
+            cookieName: 'gatsby-plugin-google-analytics-gdpr_cookies-enabled', // Your custom cookie name
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics-gdpr`,
+      options: {
+        // The property ID; the tracking code won't be generated without it.
+        trackingId: 'UA-20362245-8',
+      },
+    },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-plugin-webpack-size`,
