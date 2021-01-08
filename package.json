@@ -1,9 +1,13 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "boris-johnson-covid-bingo",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Do you find Boris Johnson's Coronavirus briefings ridiculously dull? Play a game of BoJo Bingo: mark off each phrase and action as they happen in real time.",
+  "version": "1.0.0",
+  "author": {
+    "name": "David Wheatley",
+    "email": "hi@davwheat.dev",
+    "url": "https://davwheat.dev/"
+  },
   "dependencies": {
     "@fontsource/jost": "^4.1.0",
     "@material-ui/core": "^4.11.2",
