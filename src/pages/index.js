@@ -10,6 +10,7 @@ import PortraitWarning from '../components/PortraitWarning'
 import BodySection from '../components/section'
 import PlayingField from '../components/BingoGame/PlayingField'
 import SEO from '../components/seo'
+import { NoSsr } from '@material-ui/core'
 
 const useStyles = makeStyles({
   headerContainer: {
@@ -66,7 +67,9 @@ const IndexPage = () => {
       </BodySection>
 
       <BodySection innerClassName={classes.wider} noSpacing>
-        <PlayingField />
+        <NoSsr>
+          <PlayingField />
+        </NoSsr>
       </BodySection>
     </Layout>
   )
