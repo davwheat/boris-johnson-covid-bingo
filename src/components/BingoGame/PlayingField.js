@@ -139,7 +139,7 @@ export default function PlayingField(props) {
           {gameState.map((boardItem, i) => (
             <BingoButton
               description={boardItem.text}
-              isCrossedOut={boardItem.checked || boardItem.text === FreeSpaceText}
+              isCrossedOut={boardItem.checked}
               key={`${boardItem.text}__${boardItem.checked}`}
               onClick={() => ToggleButtonState(i)}
             />

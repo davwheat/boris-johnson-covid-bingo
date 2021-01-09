@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/styles'
 import React from 'react'
 import { Colors } from '../../data'
+import { FreeSpaceText } from '../../data/bingoItems'
 
 const useStyles = makeStyles({
   root: {
@@ -23,12 +24,12 @@ const useStyles = makeStyles({
   },
 })
 
-export default React.memo(function BingoButton({ isCrossedOut, description, onClick }) {
+export default function BingoButton({ isCrossedOut, description, onClick }) {
   const classes = useStyles()
 
   return (
-    <button className={classes.root} aria-pressed={isCrossedOut ? 'true' : 'false'} onClick={onClick}>
+    <button className={classes.root} aria-pressed={isCrossedOut || description === FreeSpaceText ? 'true' : 'false'} onClick={onClick}>
       {description}
     </button>
   )
-})
+}
