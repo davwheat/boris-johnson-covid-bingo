@@ -1,8 +1,34 @@
+const workboxConfig = {
+  runtimeCaching: [
+    {
+      // Use cacheFirst since these don't need to be revalidated (same RegExp
+      // and same reason as above)
+      urlPattern: /(\.js$|\.css$|static\/)/,
+      handler: `CacheFirst`,
+    },
+    {
+      // page-data.json files are not content hashed
+      urlPattern: /^https?:.*\page-data\/.*\/page-data\.json/,
+      handler: `NetworkFirst`,
+    },
+    {
+      // AdSense
+      urlPattern: /^https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js$/,
+      handler: `NetworkOnly`,
+    },
+    {
+      // Add runtime caching of various other page resources
+      urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+      handler: `StaleWhileRevalidate`,
+    },
+  ],
+  // Set skipWaiting to false. That's the only change in config.
+  skipWaiting: false,
+  clientsClaim: true,
+}
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
     siteUrl: `https://borisbingo.com`,
   },
   plugins: [
@@ -81,5 +107,12 @@ module.exports = {
     //     enableOnDevelopment: false,
     //   },
     // },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        appendScript: require.resolve(`./src/sw.js`),
+        workboxConfig,
+      },
+    },
   ],
 }
