@@ -47,7 +47,7 @@ export default function AlertBanner(props) {
   return (
     <section
       className={clsx(classes.root, !noPadding && classes.padBottom, afterHeading && classes.afterHeading, alternateColor && classes.alternateBackground)}
-      style={{ background: customTheme.background, color: customTheme.color }}
+      style={customTheme && { background: customTheme.background, color: customTheme.color }}
     >
       <div className={innerClassName}>
         <Paragraph className={classes.title} bold>
