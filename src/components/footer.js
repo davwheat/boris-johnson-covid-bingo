@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Paragraph, Whisper } from '../typography'
 import BulletSeparator from './BulletSeparator'
 import Link from './Link'
