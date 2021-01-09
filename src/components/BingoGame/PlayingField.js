@@ -1,9 +1,8 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
 import BingoButton from './BingoButton'
 
 import copyToClipboard from 'copy-to-clipboard'
-import useStateWithCallback from '../../functions/useStateWithCallback'
 import GenerateRandomGameBoard from '../../functions/GenerateRandomGameBoard'
 import DecodeCustomItems from '../../functions/DecodeCustomItems'
 import EncodeGameBoard from '../../functions/EncodeGameBoard'
@@ -81,21 +80,17 @@ function GetGameBoard() {
   }
 }
 
-export default React.memo(function PlayingField() {
+export default function PlayingField(props) {
   const defaultGameState = GetGameBoard().map(text => ({ text, checked: false }))
 
   /**
    * @type {[{text: string, checked: bool}[], function]}
    */
-  const [gameState, setGameState] = useStateWithCallback(defaultGameState)
+  const [gameState, setGameState] = useState(defaultGameState)
 
   const forceUpdate = useReducer(x => x + 1, 0)[1]
 
   const classes = useStyles()
-
-  // if (!gameBoard) {
-  //   return <Paragraph>An error occurred. Please try refreshing the page.</Paragraph>
-  // }
 
   function ToggleButtonState(index) {
     setGameState(s => {
@@ -153,4 +148,4 @@ export default React.memo(function PlayingField() {
       </div>
     </>
   )
-})
+}
