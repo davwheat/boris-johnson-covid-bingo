@@ -10,7 +10,7 @@ import PortraitWarning from '../components/PortraitWarning'
 import BodySection from '../components/section'
 import PlayingField from '../components/BingoGame/PlayingField'
 import SEO from '../components/seo'
-import { NoSsr } from '@material-ui/core'
+import { CircularProgress, NoSsr } from '@material-ui/core'
 
 const useStyles = makeStyles({
   headerContainer: {
@@ -36,6 +36,10 @@ const useStyles = makeStyles({
   },
   wider: {
     maxWidth: 1200,
+  },
+  loading: {
+    margin: 'auto',
+    paddingBottom: 16,
   },
 })
 
@@ -67,7 +71,16 @@ const IndexPage = () => {
       </BodySection>
 
       <BodySection innerClassName={classes.wider} noSpacing>
-        <NoSsr>
+        <NoSsr
+          fallback={
+            <>
+              <CircularProgress className={classes.loading} />
+              <Paragraph center bold>
+                Loading bingo grid
+              </Paragraph>
+            </>
+          }
+        >
           <PlayingField />
         </NoSsr>
       </BodySection>
