@@ -11,6 +11,7 @@ import '../css/baseline.less'
 import Footer from './footer'
 import SiteUpdateMessage from './SiteUpdateMessage'
 import { SnackbarProvider } from 'notistack'
+import { NoSsr } from '@material-ui/core'
 
 const Layout = ({ children }) => {
   return (
@@ -20,7 +21,9 @@ const Layout = ({ children }) => {
         <Footer />
 
         {/* Displays update message when pages cached with gatsby-plugin-offline */}
-        <SiteUpdateMessage />
+        <NoSsr>
+          <SiteUpdateMessage />
+        </NoSsr>
       </SnackbarProvider>
     </ErrorBoundary>
   )
