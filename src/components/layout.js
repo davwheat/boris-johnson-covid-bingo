@@ -15,7 +15,7 @@ import { SnackbarProvider } from 'notistack'
 const Layout = ({ children }) => {
   return (
     <ErrorBoundary>
-      <SnackbarProvider>
+      <SnackbarProvider preventDuplicate>
         <main>{children}</main>
         <Footer />
 
