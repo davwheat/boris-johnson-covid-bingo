@@ -140,7 +140,7 @@ export default React.memo(function PlayingField() {
       </div>
 
       <div className={classes.gridContainer}>
-        <section className={classes.root}>
+        <section className={classes.grid}>
           {gameState.map((boardItem, i) => (
             <BingoButton
               description={boardItem.text}
