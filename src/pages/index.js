@@ -5,12 +5,13 @@ import { makeStyles } from '@material-ui/styles'
 import { Paragraph, Shout } from '../typography'
 import Layout from '../components/layout'
 import RandomBorisImage from '../components/RandomBorisImage'
-import { Breakpoints } from '../data'
+import { Breakpoints, Colors } from '../data'
 import PortraitWarning from '../components/PortraitWarning'
 import BodySection from '../components/section'
 import PlayingField from '../components/BingoGame/PlayingField'
 import SEO from '../components/seo'
 import { CircularProgress, NoSsr } from '@material-ui/core'
+import AlertBanner from '../components/AlertBanner'
 
 const useStyles = makeStyles({
   headerContainer: {
@@ -38,8 +39,9 @@ const useStyles = makeStyles({
     maxWidth: 1200,
   },
   loading: {
+    display: 'block',
     margin: 'auto',
-    paddingBottom: 16,
+    marginBottom: 16,
   },
 })
 
@@ -67,6 +69,15 @@ const IndexPage = () => {
           We'll generate a randomised Bingo board each time you refresh this page. If you hear the text or see the actions in any of the boxes, click or tap
           them to mark them off. You win if you get 5 in a row!
         </Paragraph>
+
+        <noscript>
+          <AlertBanner
+            customTheme={{ background: Colors.error }}
+            title="Javascript needed"
+            message="To be able to use this site, you need to enable Javascript."
+          />
+        </noscript>
+
         <PortraitWarning />
       </BodySection>
 
