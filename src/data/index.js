@@ -3,6 +3,7 @@ const Colors = Object.freeze({
   toryPrimary: '#0087dc',
   dark: '#203647',
   offWhite: '#fff',
+  error: '#8f1a11',
 })
 
 const Breakpoints = Object.freeze({
