@@ -6,7 +6,7 @@ import BulletSeparator from './BulletSeparator'
 import Link from './Link'
 import BodySection from './section'
 
-import { version } from '../../package.json'
+import { version, versionName } from '../../package.json'
 
 export default function Footer() {
   const buildDateString = useStaticQuery(graphql`
@@ -43,7 +43,7 @@ export default function Footer() {
       </Paragraph>
       <Whisper>All names on this website are real. All identification with actual persons is intended or should be inferred.</Whisper>
       <Whisper>
-        Version {version} - last updated {buildDateString}
+        Version {version} ("{versionName}") - last updated {buildDateString}
       </Whisper>
     </BodySection>
   )
