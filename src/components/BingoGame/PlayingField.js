@@ -28,6 +28,7 @@ const useStyles = makeStyles({
       background: '#fff',
     },
     minWidth: 875,
+    minHeight: 600,
   },
   controls: {
     marginBottom: 24,
