@@ -45,6 +45,8 @@ export default function HTML(props) {
         <meta name="og:locale" content="en_GB" />
         <meta name="og:type" content="website" />
 
+        <script data-ad-client="ca-pub-2701335557132384" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
