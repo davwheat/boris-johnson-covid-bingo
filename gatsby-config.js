@@ -34,7 +34,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-preact`,
     `gatsby-plugin-less`,
-    `gatsby-plugin-htaccess`,
     `gatsby-plugin-react-head`,
     {
       resolve: 'gatsby-plugin-react-svg',
