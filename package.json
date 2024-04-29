@@ -24,7 +24,7 @@
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-less": "^7.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
-    "gatsby-plugin-material-ui": "^3.0.1",
+    "gatsby-plugin-material-ui": "^4.1.0",
     "gatsby-plugin-provide-react": "^1.0.2",
     "gatsby-plugin-react-head": "https://github.com/davwheat/gatsby-plugin-react-head",
     "gatsby-plugin-react-svg": "^3.3.0",
