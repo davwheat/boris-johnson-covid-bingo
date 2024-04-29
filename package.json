@@ -19,6 +19,7 @@
     "copy-to-clipboard": "^3.3.3",
     "gatsby": "^5.13.4",
     "gatsby-plugin-build-date": "^1.0.0",
+    "gatsby-plugin-cloudflare-pages": "^1.0.3",
     "gatsby-plugin-emotion": "^8.13.1",
     "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-image": "^3.13.1",
@@ -51,12 +52,13 @@
   "license": "MIT",
   "scripts": {
     "build": "cross-env NODE_ENV=production gatsby build",
+    "build:ci": "cross-env NODE_ENV=production GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages --verbose",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy:pages": "cross-env IS_GITHUB_PAGES_BUILD=true yarn build --prefix-paths && gh-pages -b prod -d public -m \"Deploy website\""
+    "serve": "yarn wrangler pages dev --proxy 8000",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,less,mdx}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,less,mdx}\"",
+    "start": "yarn develop",
+    "clean": "gatsby clean"
   },
   "packageManager": "yarn@4.1.1",
   "resolutions": {
