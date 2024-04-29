@@ -6,6 +6,7 @@ module.exports = {
     DEV_SSR: true,
   },
   plugins: [
+    `gatsby-plugin-cloudflare-pages`,
     `gatsby-plugin-less`,
     `gatsby-plugin-react-head`,
     `gatsby-plugin-provide-react`,
