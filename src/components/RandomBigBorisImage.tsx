@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
 export default function RandomBorisOopsImage(props) {
@@ -8,16 +8,15 @@ export default function RandomBorisOopsImage(props) {
       allFile(filter: { relativeDirectory: { eq: "boris-oops" } }) {
         nodes {
           childImageSharp {
-            fixed(quality: 50, width: 400, height: 400) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(quality: 50, width: 400, height: 400, layout: FIXED)
           }
         }
       }
     }
   `).allFile.nodes
 
-  const randomImageData = allImages[Math.floor(Math.random() * allImages.length)].childImageSharp.fixed
+  const randomImageData = allImages[Math.floor(Math.random() * allImages.length)].childImageSharp.gatsbyImageData
 
-  return <Img fixed={randomImageData} {...props} />
+  return <GatsbyImage image={randomImageData} {...props} />
 }
+

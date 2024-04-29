@@ -4,4 +4,10 @@
  * See: https://www.gatsbyjs.com/docs/ssr-apis/
  */
 
-// You can delete this file if you're not using it
+import 'normalize.css'
+
+import React from 'react'
+
+export function wrapRootElement({ element }) {
+  return <React.StrictMode>{element}</React.StrictMode>
+}

@@ -3,7 +3,7 @@
  * to append to a URL to get that specific game board back.
  *
  * @param {string[]} gameBoard Array of game board button text
- * 
+ *
  * @returns {string}
  * @example "?items=cGVuaXM="
  */
