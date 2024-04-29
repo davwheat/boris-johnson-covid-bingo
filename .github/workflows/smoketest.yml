@@ -1,0 +1,129 @@
+name: Smoketest
+
+on:
+  push:
+    branches:
+      - main
+      - deploy
+  pull_request:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: 20.x
+  CF_PAGES_PROJECT_NAME: boris-bingo
+
+jobs:
+  smoketest:
+    runs-on: ubuntu-latest
+    name: Test, build and deploy
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Find existing build status comment
+        continue-on-error: true
+        uses: peter-evans/find-comment@v2
+        if: github.event_name == 'pull_request'
+        id: find_status_comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Deploying with
+
+      - name: Create or update comment
+        continue-on-error: true
+        uses: peter-evans/create-or-update-comment@v3
+        if: github.event_name == 'pull_request'
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-id: ${{ steps.find_status_comment.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            ## Deploying with &nbsp;<a href="https://pages.dev"><img alt="Cloudflare Pages" src="https://user-images.githubusercontent.com/23264/106598434-9e719e00-654f-11eb-9e59-6167043cfa01.png" width="16"></a> &nbsp;Cloudflare Pages
+
+            <table><tr><td><strong>Latest commit:</strong> </td><td>
+            <code>${{  github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}</code>
+            </td></tr>
+            <tr><td><strong>Status:</strong></td><td>
+            &nbsp;⚡️&nbsp; Build in progress...
+            </td></tr>
+            </table>
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: |
+          yarn install --immutable
+
+      - name: Verify formatting
+        run: yarn format:check
+
+      - name: Restore Gatsby cache
+        uses: actions/cache@v4
+        id: gatsbyCache
+        with:
+          path: ./.cache
+          key: ${{ runner.os }}-gatsby-cache-${{ hashFiles('public') }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-cache-
+
+      - name: Build site
+        run: yarn build:ci
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        id: cf-pages-upload
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ env.CF_PAGES_PROJECT_NAME }}
+          directory: public # e.g. 'dist'
+          # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '3'
+          # Use PR head branch if available, otherwise use the current branch
+          branch: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
+
+      - name: Find existing build status comment
+        continue-on-error: true
+        uses: peter-evans/find-comment@v2
+        if: github.event_name == 'pull_request'
+        id: find_current_status_comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: ${{  github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - name: Update comment
+        continue-on-error: true
+        if: github.event_name == 'pull_request' && steps.find_current_status_comment.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          comment-id: ${{ steps.find_current_status_comment.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            ## Deploying with &nbsp;<a href="https://pages.dev"><img alt="Cloudflare Pages" src="https://user-images.githubusercontent.com/23264/106598434-9e719e00-654f-11eb-9e59-6167043cfa01.png" width="16"></a> &nbsp;Cloudflare Pages
+
+            <table><tr><td><strong>Latest commit:</strong> </td><td>
+            <code>${{  github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}</code>
+            </td></tr>
+            <tr><td><strong>Status:</strong></td><td>
+            &nbsp;✅&nbsp; Deploy successful!
+            </td></tr>
+            <tr><td><strong>Preview URL:</strong></td><td>
+            <a href='${{ steps.cf-pages-upload.outputs.url }}'>${{ steps.cf-pages-upload.outputs.url }}</a>
+            </td></tr>
+            <tr><td><strong>Branch Preview URL:</strong></td><td>
+            <a href='${{ steps.cf-pages-upload.outputs.alias }}'>${{ steps.cf-pages-upload.outputs.alias }}</a>
+            </td></tr>
+            </table>
+

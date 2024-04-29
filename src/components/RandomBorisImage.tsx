@@ -19,4 +19,3 @@ export default function RandomBorisImage(props) {
 
   return <GatsbyImage image={randomImageData} {...props} />
 }
-
