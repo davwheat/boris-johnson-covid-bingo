@@ -17,7 +17,7 @@
     "@slixites/gatsby-plugin-google-fonts": "^1.1.1",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
-    "gatsby": "^5.13.4",
+    "gatsby": "^5.13.7",
     "gatsby-plugin-build-date": "^1.0.0",
     "gatsby-plugin-cloudflare-pages": "^1.0.3",
     "gatsby-plugin-emotion": "^8.13.1",
